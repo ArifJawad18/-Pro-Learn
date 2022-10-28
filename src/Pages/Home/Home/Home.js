@@ -5,8 +5,7 @@ import SummaryCard from '../../Shared/SummaryCard/SummaryCard';
 const Home = () => {
     const course = useLoaderData();
     return (
-        <div >
-            <h1>Home:{course.length}</h1>
+        <div className='mt-5' >
           
             {
                 course.map(news=> <SummaryCard
@@ -14,8 +13,9 @@ const Home = () => {
                     news={news}
                 ></SummaryCard>)
             }
+            </div>
        
-        </div>
+     
         
     );
 };

@@ -16,13 +16,11 @@ const LeftSideNav = () => {
 
 
     return (
-        <div>
-            <h4>{categories.length}</h4>
+        <div className='mt-5'>
             
-            <div>
     <Card style={{ width: '10rem' }}>
       <ListGroup variant="flush">
-        <ListGroup.Item> {
+        <ListGroup.Item className='bg-dark'> {
                     categories.map(category => <p key={category.id}>
                         <Link to={`/category/${category.id}`}>{category.name}</Link>
                     </p>)
@@ -30,7 +28,6 @@ const LeftSideNav = () => {
       </ListGroup>
     </Card>
         
-        </div>
         </div>
 
     );

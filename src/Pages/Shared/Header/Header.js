@@ -1,14 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 
 const Header = () => {
+  
+  const { user } = useContext (AuthContext)
     return (
         <div>
        <Navbar bg="dark" expand="lg" variant="dark">
@@ -28,16 +32,14 @@ const Header = () => {
           </Nav>
 
           <Form className="d-flex">
-
           <Link to={`/login`}>
           <Button variant="primary">Login</Button>
           </Link>
           <Link to={`/login`}>
           <Button variant="primary">Reg</Button>
           </Link>
+          <Nav.Link href='#'>{user?.displayName}</Nav.Link>
 
-         <Button>dark</Button>
-         <Button>pic</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

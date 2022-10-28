@@ -2,10 +2,11 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SummaryCard from '../../Shared/SummaryCard/SummaryCard';
 
+
 const Home = () => {
     const course = useLoaderData();
     return (
-        <div className='mt-5' >
+        <div className='home-container mt-5' >
           
             {
                 course.map(news=> <SummaryCard

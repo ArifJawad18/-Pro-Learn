@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,12 +24,20 @@ const Header = () => {
             navbarScroll>
             <Nav.Link href="/">Courses</Nav.Link>
             <Nav.Link href="/faq">FAQ</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
           </Nav>
 
           <Form className="d-flex">
-            <Button variant="danger">Login</Button>
+
+          <Link to={`/login`}>
+          <Button variant="primary">Login</Button>
+          </Link>
+          <Link to={`/login`}>
+          <Button variant="primary">Reg</Button>
+          </Link>
+
+         <Button>dark</Button>
+         <Button>pic</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

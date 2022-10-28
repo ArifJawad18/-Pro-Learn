@@ -5,6 +5,7 @@ import Home from "../../Pages/Home/Home/Home";
 import News from "../../Pages/News/News/News";
 import Blog from "../../Pages/Blog/Blog";
 import Faq from "../../Pages/Faq/Faq";
+import Login from "../../Pages/Login/Login";
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +25,8 @@ export const routes = createBrowserRouter([
             },
             {
             path:'/news/:id',
-            element:<News></News>
+            element:<News></News>,
+            loader: () => fetch('course.json')
             },
             {
                 path:'/faq',
@@ -33,6 +35,10 @@ export const routes = createBrowserRouter([
             {
             path:'/blog',
             element:<Blog></Blog>
+            },
+            {
+            path:'/login',
+            element:<Login></Login>
             },
             {
                 path: '*',

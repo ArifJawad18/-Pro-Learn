@@ -17,7 +17,7 @@ const SummaryCard = ({news}) => {
         <div className="activity-container mb-3">
         <div className="home-container">
         
-            <Card  style={{ width: '18rem' }}>
+            <Card  style={{ width: '17rem' }}>
             <div className='product'>
       <Card.Img variant="top" src={picture} />
       </div>

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import Button from 'react-bootstrap/Button';
+
 const LeftSideNav = () => {
     const[categories, setCategories] = useState([]);
 
@@ -18,12 +20,15 @@ const LeftSideNav = () => {
     return (
         <div className='mt-5'>
             
-    <Card style={{ width: '10rem' }}>
+    <Card style={{ width: '11rem' }}>
       <ListGroup variant="flush">
+
         <ListGroup.Item className='bg-dark'> {
-                    categories.map(category => <p key={category.id}>
-                        <Link to={`/category/${category.id}`}>{category.name}</Link>
-                    </p>)
+                    categories.map(category => <Button className='bg-dark' key={category.id}>
+                        <Link to={`/news/${category.id}`} >
+                       {category.name}</Link>
+                    </Button>)
+                    
                 }</ListGroup.Item>
       </ListGroup>
     </Card>

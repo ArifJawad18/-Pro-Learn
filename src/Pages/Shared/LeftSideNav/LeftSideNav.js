@@ -23,8 +23,8 @@ const LeftSideNav = () => {
     <Card style={{ width: '11rem' }}>
       <ListGroup variant="flush">
 
-        <ListGroup.Item className='bg-dark'> {
-                    categories.map(category => <Button className='bg-dark' key={category.id}>
+        <ListGroup.Item className='bg-light'> {
+                    categories.map(category => <Button className='bg-light' key={category.id}>
                         <Link to={`/news/${category.id}`} >
                        {category.name}</Link>
                     </Button>)

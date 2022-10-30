@@ -1,10 +1,6 @@
 import React, { createContext } from 'react';
 import {getAuth, signInWithPopup} from 'firebase/auth';
-import app from '../../firebase/firebase.config';
-
-
-
-
+import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext() 
 

@@ -1,24 +1,35 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import {  FaUser } from "react-icons/fa";
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 
 const Header = () => {
   
-  const { user } = useContext (AuthContext)
+  const { user, logOut } = useContext (AuthContext)
+
+  const handelLogOut = () => {
+    logOut()
+    .then(() => {})
+    .catch(error => console.error(error))
+  }
+
+
+
     return (
         <div>
        <Navbar bg="light" expand="lg" variant="light">
       <Container fluid>
-        
-
+      <Image style={{height:'30px'}}  roundedCircle src=''>
+          </Image>
         <Navbar.Brand href="/">Pro-Learn</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -32,15 +43,33 @@ const Header = () => {
           </Nav>
 
           {/* user */}
-          <Nav.Link className="mr-5" href='#'>{user?.displayName}</Nav.Link>
-           {/* user end */}
 
-          <Link to={`/login`}>
+          {
+            user?.uid ?
+            <>
+            <span className='mr-5'>{user.displayName}</span>
+            <Button className='mr-5' onClick={handelLogOut}>Log out</Button>
+            </>
+            :
+            <>
+            <Link to={`/login`}>
           <Button className='mr-5' variant="primary">Login</Button>
           </Link>
           <Link to={`/register`}>
           <Button className='mr-5' variant="primary">Register</Button>
           </Link>
+
+            </>
+          }
+
+          
+          <Nav.Link className="mr-5" eventKey={2} href='#'>{user?.photoURL ?
+          <Image style={{height:'30px'}}  roundedCircle src={user?.photoURL}>
+          </Image>
+          : <FaUser></FaUser>
+          }
+          </Nav.Link>
+         
           <Form className="d-flex">
           <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer text-blue-800">
 	<span>Light</span>

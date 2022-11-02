@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import '../SummaryCard/SummaryCard.css'
 import { FaStar } from "react-icons/fa";
-import { FaStarHalfAlt } from "react-icons/fa";
+
 
 
 
@@ -24,7 +24,7 @@ const SummaryCard = ({news}) => {
 
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text  >
+        <Card.Text>
           {
           title.length > 200 ?
           <p>{title.slice(0, 250) + '...'} <Link to={`/news/${id}`}>Read more</Link></p>
@@ -40,17 +40,13 @@ const SummaryCard = ({news}) => {
       <Card.Footer>
           <div>
         <FaStar className='text-warning'></FaStar>
-        <FaStar className='text-warning'></FaStar>
-        <FaStar className='text-warning'></FaStar>
-        <FaStarHalfAlt className='text-warning me-2'></FaStarHalfAlt>
         <span>{number}</span>
           </div>
         </Card.Footer>
-      
     </Card>
+</div>
+</div>
 
-</div>
-</div>
 
 
 

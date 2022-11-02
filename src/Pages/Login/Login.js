@@ -1,10 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const Login = () => {
+	const [error, setError] = useState('');
 
 	const {signIn} = useContext(AuthContext);
 	const navigate =  useNavigate()
@@ -14,16 +16,21 @@ const Login = () => {
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
+
+
 		signIn(email, password)
-		
 		.then(result => {
 			const user = result.user;
 			console.log(user)
 			form.reset();
+			setError('');
 			navigate('/')
 		})
 
-		.catch(error => console.log(error))
+	.catch(error => {
+		console.error(error)
+		setError(error.message);
+		})
 	}
 
 
@@ -55,6 +62,11 @@ const Login = () => {
 			<input type="password" name="password" id="password" placeholder="Password" required className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-blue-600" />
 		</div>
 		<button className="block w-full p-3 text-center rounded-xl text-gray-50 bg-blue-600">Sign in</button>
+
+		<p className='text-danger'>
+			{error}
+		</p>
+		
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
@@ -75,8 +87,6 @@ const Login = () => {
 	</div>
 	<p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
 		<a rel="noopener noreferrer" href="/register" className="underline text-gray-800">Sign up</a>
-
-		<p className="px-3 text-sm text-gray-600"></p>
 	</p>
 </div>
 </div>

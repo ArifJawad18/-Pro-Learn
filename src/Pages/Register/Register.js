@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
+    const [error,setError] = useState('');
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -13,17 +15,37 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name,photoURL,email,password);
+        // console.log(name,photoURL,email,password);
 
         createUser(email, password)
         .then( result => {
             const user = result.user;
             console.log(user);
+            setError('');
             form.reset();
+            handleUpdateUserProfile(name, photoURL)
         })
-        .catch( e => console.error(e));
+        .catch( e => {
+            console.error(e)
+            setError(e.message)
+
+        });
+
+        const handleUpdateUserProfile = (name, photoURL) => {
+            const profile = {
+                displayName:name,
+                photoURL: photoURL
+            }
+            updateUserProfile(profile)
+            .then(() => {})
+            .catch(error => console.error(error));
+        }
+    
+
+
 
     }
+    
 
     return (
         <div  className='mt-5 ml-12'>
@@ -47,6 +69,9 @@ const Register = () => {
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-blue-600" />
                 </div>
                 <button className="block w-full p-3 text-center rounded-xl text-gray-50 bg-blue-600">Register</button>
+                <p className='text-danger'>
+                    {error}
+                </p>
             </form>
             </div>
         </div>

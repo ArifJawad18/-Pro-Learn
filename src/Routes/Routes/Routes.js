@@ -7,6 +7,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Faq from "../../Pages/Faq/Faq";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import PrivateRoute from "../../Pages/PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {

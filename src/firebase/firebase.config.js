@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "pro-learn-bc3ce",
   storageBucket: "pro-learn-bc3ce.appspot.com",
   messagingSenderId: "1070559220020",
-  appId: "1:1070559220020:web:689dbffe356b21c273d561"
+  appId: "1:1070559220020:web:689dbffe356b21c273d561",
 };
 
 // Initialize Firebase

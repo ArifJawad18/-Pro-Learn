@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -12,20 +12,24 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const [dark,setDark] = useState(false);
-
   const handelLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.error(error));
   };
- 
+
   return (
-    <div data-them={dark ? "dark" : "light"}>
-      <Navbar  bg="light" expand="lg" variant="light">
+    <div>
+      <Navbar bg="light" expand="lg" variant="light">
         <Container fluid>
           <Image style={{ height: "30px" }} roundedCircle src=""></Image>
-          <Navbar.Brand href="/">Pro-Learn</Navbar.Brand>
+          <Navbar.Brand
+            type="button"
+            className="font-semibold  text-yellow-700 mr-5"
+            href="/"
+          >
+            Pro-Learn
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -33,29 +37,55 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Courses</Nav.Link>
-              <Nav.Link href="/faq">FAQ</Nav.Link>
-              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link
+                type="button"
+                className="font-semibold  text-blue-500 mr-5"
+                href="/"
+              >
+                Courses
+              </Nav.Link>
+              <Nav.Link
+                type="button"
+                className="font-semibold  text-blue-500 mr-5"
+                href="/faq"
+              >
+                FAQ
+              </Nav.Link>
+              <Nav.Link
+                type="button"
+                className="font-semibold  text-blue-500 mr-5"
+                href="/blog"
+              >
+                Blog
+              </Nav.Link>
             </Nav>
-
-            {/* user */}
 
             {user?.uid ? (
               <>
                 <span className="mr-5">{user.displayName}</span>
-                <Button className="mr-5" onClick={handelLogOut}>
+                <Button
+                  type="button"
+                  className="font-semibold  bg-gray-500 text-gray-100 mr-5"
+                  onClick={handelLogOut}
+                >
                   Log out
                 </Button>
               </>
             ) : (
               <>
                 <Link to={`/login`}>
-                  <Button className="mr-5" variant="primary">
+                  <Button
+                    type="button"
+                    className="font-semibold  bg-gray-500 text-gray-100 mr-5"
+                  >
                     Login
                   </Button>
                 </Link>
                 <Link to={`/register`}>
-                  <Button className="mr-5" variant="primary">
+                  <Button
+                    type="button"
+                    className="font-semibold  bg-gray-500 text-gray-100 mr-5"
+                  >
                     Register
                   </Button>
                 </Link>
@@ -76,7 +106,7 @@ const Header = () => {
 
             <Form className="d-flex">
               <label className="swap swap-rotate">
-                <input type="checkbox" onClick={() =>  setDark(!dark)}/>
+                <input type="checkbox" />
 
                 <svg
                   className="swap-on fill-current w-10 h-10"

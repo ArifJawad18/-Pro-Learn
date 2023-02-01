@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
-import Category from "../../Pages/Category/Category/Category";
-import Home from "../../Pages/Home/Home/Home";
-import News from "../../Pages/News/News/News";
 import Blog from "../../Pages/Blog/Blog";
+import Category from "../../Pages/Category/Category/Category";
 import Faq from "../../Pages/Faq/Faq";
+import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import News from "../../Pages/News/News/News";
 import Register from "../../Pages/Register/Register";
 
 export const routes = createBrowserRouter([
@@ -45,11 +45,14 @@ export const routes = createBrowserRouter([
             path:'/register',
             element:<Register></Register>
             },
+         
             {
-                path: '*',
-                element:<div> Sorry, We Couldn't Find This Page 404</div>
-              },
-
+            path:'*',
+            element:<div> <p className="text-2xl font-semibold md:text-3xl text-center text-red-600">
+            Sorry, we couldn't find this page.
+          </p></div>
+            },
+         
         ]
     }
 

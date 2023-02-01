@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { Spinner } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {

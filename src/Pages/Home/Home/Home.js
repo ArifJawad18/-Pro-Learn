@@ -6,7 +6,7 @@ import SummaryCard from '../../Shared/SummaryCard/SummaryCard';
 const Home = () => {
     const course = useLoaderData();
     return (
-        <div className='home-container mt-5' >
+        <div className="grid mt-5 gap-4 ml-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           
             {
                 course.map(news=> <SummaryCard

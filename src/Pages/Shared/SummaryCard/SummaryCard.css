@@ -1,32 +1,11 @@
-.product{
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color:steelblue;
-    padding-left: 0px;
-    color: white;
-   
-}
-.home-container{
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    margin-left: 100px;
-    border-radius: 10px;
-    gap: 25px;
-    
-}
-.activity-container{
-    display: flex;
-   justify-content: center;
-}
 @media only screen and (max-width: 700px) {
-    .home-container{
-        grid-template-columns: repeat(1,1fr);
-        margin-left:5px ;
-        margin-right: 5px;
-        
-    }
-    .activity-container{
-        grid-template-columns: repeat(1,1fr);
-        justify-items: center;
-    }
+  .home-container {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .activity-container {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
 }

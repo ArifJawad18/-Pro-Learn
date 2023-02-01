@@ -1,9 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 import { FaClock, FaVideo } from "react-icons/fa";
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const News = () => {
@@ -15,7 +14,7 @@ const News = () => {
             <h1>{name}</h1>
 
             <Card className='mt-5 m-5'>
-        <Card.Img variant="top" src="https://img.freepik.com/premium-vector/letter-c-font-made-from-binary-code-digits-dark-blue-background_601748-29916.jpg?w=740"/>
+        <Card.Img variant="top" src=""/>
         <Card.Body>
           <Card.Text>
             <h4>Introduction to C </h4>
